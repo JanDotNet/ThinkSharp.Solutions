@@ -21,15 +21,15 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 2) Create a file "TemplateDefinition.xml" on top level
 3) Define all placeholders within the template definition file as shown below:
     
-    `<?xml version="1.0" encoding="utf-8" ?>
+    <?xml version="1.0" encoding="utf-8" ?>
     <TemplateDefinition>
-      <Placeholders>
-        <Placeholder Name="MODULE"
-                     Description="The module the micro service belongs to."
-                     SuggestionList="Module01, Module02, Module03" />
-        <Placeholder Name="MICROSERVICE" 
-	             Description="The name of the microservice" />				 
-      </Placeholders>
+        <Placeholders>
+            <Placeholder Name="MODULE"
+                         Description="The module the micro service belongs to."
+                         SuggestionList="Module01, Module02, Module03" />
+            <Placeholder Name="MICROSERVICE" 
+	                 Description="The name of the microservice" />				 
+        </Placeholders>
     </TemplateDefinition>`
 
 The name must be the text of the actual placeholder.
