@@ -20,7 +20,7 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 1) Create a new solution and replace all configurable text fragments with placeholders. "configurable text fragments" may text within files or file / directory names.
 2) Create a file "TemplateDefinition.xml" on top level
 3) Define all placeholders within the template definition file as shown below:
-    
+   
     <?xml version="1.0" encoding="utf-8" ?>
     <TemplateDefinition>
         <Placeholders>
@@ -30,7 +30,7 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
             <Placeholder Name="MICROSERVICE" 
 	                 Description="The name of the microservice" />				 
         </Placeholders>
-    </TemplateDefinition>`
+    </TemplateDefinition>
 
 The name must be the text of the actual placeholder.
 The SuggestionList is a comma-separated list that will be provided as replacements when creating the solution from template.
