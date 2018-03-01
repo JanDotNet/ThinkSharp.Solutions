@@ -43,7 +43,7 @@ The SuggestionList is a comma-separated list that will be provided as replacemen
 
 1) Start a new instance of Visual Studio 2015
 2) Klick Tools -> Create Solution from Template
-3) Enter git repository URL, target directory into the dialog and press "Clone Template"
+3) Enter git repository URL and target directory into the dialog and press "Clone Template"
 
 ![thinksharp solutions01](https://user-images.githubusercontent.com/21179870/36869524-623b622a-1d9c-11e8-880f-a1359052416c.png)
 
@@ -53,7 +53,7 @@ The solution will be copied into the entered target directory.
 
 ![thinksharp solutions02](https://user-images.githubusercontent.com/21179870/36869541-720c7e00-1d9c-11e8-83a1-75d48670a0d9.png)
 
-All placeholders will be replaced in all files (file content) as well as directories and file names.
+All placeholders will be replaced in all files (file content) as well as directory and file names.
 If "Open Solution" is checked, the solution will be opend.
 
 ## License
