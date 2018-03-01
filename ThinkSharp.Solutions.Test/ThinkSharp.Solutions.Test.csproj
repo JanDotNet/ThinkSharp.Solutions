@@ -6,8 +6,8 @@
     <ProjectGuid>{53517E00-A432-484E-A590-DBCA0958C7B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ThinkSharp.SolutionGenerator.Test</RootNamespace>
-    <AssemblyName>ThinkSharp.SolutionGenerator.Test</AssemblyName>
+    <RootNamespace>ThinkSharp.Solutions.Test</RootNamespace>
+    <AssemblyName>ThinkSharp.Solutions.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
