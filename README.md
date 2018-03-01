@@ -1,7 +1,6 @@
 # ThinkSharp.Solutions
 
-[![Build status](https://ci.appveyor.com/api/projects/status/l3aagqmbfmgxwv3t?svg=true)](https://ci.appveyor.com/project/JanDotNet/thinksharp-featuretour)
-[![NuGet](https://img.shields.io/nuget/v/ThinkSharp.FeatureTour.svg)](https://www.nuget.org/packages/ThinkSharp.FeatureTour/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.TXT)
+[![Build status](https://ci.appveyor.com/api/projects/status/l3aagqmbfmgxwv3t?svg=true)](https://ci.appveyor.com/project/JanDotNet/thinksharp-solutions)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.TXT)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MSBFDUU5UUQZL)
 
 ## Intoduction
@@ -11,6 +10,7 @@ The template may contain place holders that are replaced custom values after clo
 
 ## Installation
 
+Download last build: https://ci.appveyor.com/project/JanDotNet/thinksharp-solutions/build/artifacts and install it.
 
 
 ## License
