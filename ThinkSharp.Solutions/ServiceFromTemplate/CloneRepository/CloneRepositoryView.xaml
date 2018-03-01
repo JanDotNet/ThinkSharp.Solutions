@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository.CloneRepositoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />        
+    </UserControl.Resources>    
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3" Text="Creating new Solution from GIT repository" FontWeight="Bold" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Git Repository:" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding GitRepository, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Target Directory:" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="2" Grid.Column="2" Content="..." Command="{Binding CmdSelectFolder}" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TemplateDefinition>
+  <Placeholders>
+    <Placeholder Name="MODULE1"
+                 Description="Hello World"
+                 DefaultValue="123"
+                 SuggestionList="123,456,788" />
+
+    <Placeholder Name="MODULE2" />
+  </Placeholders>
+</TemplateDefinition>

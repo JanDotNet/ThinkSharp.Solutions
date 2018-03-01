@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="ThinkSharp.Solutions.ServiceFromTemplate.GenerateSolutionFromTemplateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate"
+             xmlns:CloneRepository="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository"
+             xmlns:PlaceholderReplacement="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement"
+             mc:Ignorable="d"
+             Height="300" Width="600"
+             Name="MyToolWindow">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5" />
+            <!--<Setter Property="MinHeight" Value="23" />-->
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinHeight" Value="22" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinWidth" Value="22" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinWidth" Value="22" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="MinWidth" Value="22" />
+        </Style>
+
+        <DataTemplate DataType="{x:Type CloneRepository:CloneRepositoryViewModel}" >
+            <CloneRepository:CloneRepositoryView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type PlaceholderReplacement:ReplacePlaceholderViewModel}" >
+            <PlaceholderReplacement:ReplacePlaceholderView/>
+        </DataTemplate>
+        
+    </UserControl.Resources>
+    <DockPanel LastChildFill="True">
+        <StatusBar Grid.Row="5" DockPanel.Dock="Bottom" Height="32" Background="LightGray">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+
+            <StatusBarItem Grid.Column="0">
+                <TextBlock Text="{Binding StatusText}" />
+            </StatusBarItem>
+            <StatusBarItem Grid.Column="1">
+                <ProgressBar IsIndeterminate="True" Visibility="{Binding IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                             Height="14" Width="90"/>
+            </StatusBarItem>
+        </StatusBar>
+    
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+            <ContentControl Content="{Binding CurrentStep}" Background="Green" />
+
+            <CheckBox Grid.Row="1" IsChecked="{Binding OpenSolutionAfterCreation}" Content="Open solution after creation" VerticalAlignment="Center" />
+
+            <Button Grid.Row="1" HorizontalAlignment="Right" Content="{Binding CurrentStep.ActionText}" Command="{Binding CmdGenerateMicroService}" Padding="5"/>
+    </Grid>
+    </DockPanel>
+</UserControl>

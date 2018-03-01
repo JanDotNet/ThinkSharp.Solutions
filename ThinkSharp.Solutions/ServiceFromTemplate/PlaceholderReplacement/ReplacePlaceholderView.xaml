@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement.ReplacePlaceholderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />        
+    </UserControl.Resources>    
+    
+    <Grid Margin="0">       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Replace placeholders in template" FontWeight="Bold" />
+
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Placeholders}"
+                      Grid.IsSharedSizeScope="True" x:Name="PlaceholderItems">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
+                            <ColumnDefinition Width="*" />                        
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Name}" />
+                        <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>                        
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>
