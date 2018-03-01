@@ -21,7 +21,7 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 2) Create a file "TemplateDefinition.xml" on top level
 3) Define all placeholders within the template definition file as shown below:
     
-    <?xml version="1.0" encoding="utf-8" ?>
+    `<?xml version="1.0" encoding="utf-8" ?>
     <TemplateDefinition>
       <Placeholders>
         <Placeholder Name="MODULE"
@@ -32,7 +32,7 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 				             Description="The name of the microservice" />
 				 
       </Placeholders>
-    </TemplateDefinition>
+    </TemplateDefinition>`
 
 The SuggestionList will be provided when creating the solution from template.
 
@@ -43,8 +43,10 @@ The SuggestionList will be provided when creating the solution from template.
 1) Start a new instance of Visual Studio 2015
 2) Klick Tools -> Create Solution from Template
 3) Enter git repository URL, target directory into the dialog and press "Clone Template"
+![thinksharp solutions01](https://user-images.githubusercontent.com/21179870/36869524-623b622a-1d9c-11e8-880f-a1359052416c.png)
 
 4) Enter replacements and press "Replace Placeholders"
+![thinksharp solutions02](https://user-images.githubusercontent.com/21179870/36869541-720c7e00-1d9c-11e8-83a1-75d48670a0d9.png)
 
 All placeholders will be replaced in all files as well as directory and file names.
 
