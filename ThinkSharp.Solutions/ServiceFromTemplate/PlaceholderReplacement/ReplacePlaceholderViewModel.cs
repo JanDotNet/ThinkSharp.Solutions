@@ -37,6 +37,15 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
             if (templateDefinition == null)
                 return false;
 
+            try
+            {
+                File.Delete(templateDefinitionFile);
+            }
+            catch(Exception ex)
+            {
+                theLogger.Error($"Unable to delete template definition file: '{templateDefinitionFile}'.", ex);
+            }
+
             foreach (var placeholderDefinition in templateDefinition.Placeholders)
             {
                 var placeholder = new PlaceholderViewModel()
