@@ -53,10 +53,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Infrastructure\IOHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateDefinition\TemplateDefinitionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Infrastructure\GuidTestFile.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TemplateDefinition\TestFile01.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -70,6 +70,10 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
 
                 await Task.Run(() => IOHelper.ReplacePlaceholdersInFilesContent(ctx.TargetDirectory, placeholders));
 
+                progress.Report("Replacing guids in file content...");
+
+                await Task.Run(() => IOHelper.ReplaceGuids(ctx.TargetDirectory));
+
                 return true;
             }
             catch (Exception ex)
