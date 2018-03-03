@@ -161,5 +161,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
 
             return false;
         }
+
+        public string Version => typeof(ServiceFromTemplateCommand).Assembly.GetName().Version.ToString(2);
     }
 }

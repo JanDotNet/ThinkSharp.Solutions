@@ -49,6 +49,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
@@ -60,6 +61,9 @@
             <StatusBarItem Grid.Column="1">
                 <ProgressBar IsIndeterminate="True" Visibility="{Binding IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}" 
                              Height="14" Width="90"/>
+            </StatusBarItem>
+            <StatusBarItem  Grid.Column="2">
+                <TextBlock Text="{Binding Version}" />
             </StatusBarItem>
         </StatusBar>
     
