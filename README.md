@@ -17,9 +17,12 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 
 ## Creating a Template
 
-1) Create a new solution and replace all configurable text fragments with placeholders. "configurable text fragments" may text within files or file / directory names.
-2) Create a file "TemplateDefinition.xml" on top level
-3) Define all placeholders within the template definition file as shown below:
+### Create Template
+Create a new solution and replace all configurable text fragments with placeholders. "configurable text fragments" may text within files or file / directory names.
+
+### Add TemplateDefinitionFile
+* Create a file "TemplateDefinition.xml" on top level
+* Define all placeholders within the template definition file as shown below:
    
 ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -37,7 +40,18 @@ Note that ThinkSharp.Solutions is currently only available for Visual Studio 201
 The name must be the text of the actual placeholder.
 The SuggestionList is a comma-separated list that will be provided as replacements when creating the solution from template.
 
-4) Push the template to a git repository
+### Define GUID Placeholders
+GUID placeholders are valid GUIDs so that the template remains buildable. There are 2 types of special GUID placeholders that can be used.
+
+**NewGuid Placeholder**
+
+All occurencies of the GUID "00000000-1111-0000-1111-000000000000" will be replaced by a new generated GUID using `Guid.New()`. This placeholder provides a simple way to generate new guids.
+
+**NewCachedGuid Placeholder**
+
+All occurencies of the GUID "00000000-1111-0000-1111-[0-9a-f]{12}" will be replaced by a new generated or cached GUID. That means, that 2 occurencies of the placeholder "00000000-1111-0000-1111-000000000001" will be replaced by the same GUID. Therefore, this placeholder provides a way to use the same new generated GUID multiple times.
+
+### Push the template to a git repository
 
 ## Usage
 
