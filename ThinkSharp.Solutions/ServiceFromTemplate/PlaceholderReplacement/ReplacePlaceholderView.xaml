@@ -26,7 +26,7 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
                             <ColumnDefinition Width="*" />                        
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Name}" />
+                        <Label Grid.Column="0" Content="{Binding Name}" ToolTip="{Binding Description}" />
                         <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>                        
                     </Grid>
                 </DataTemplate>
