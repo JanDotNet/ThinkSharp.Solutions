@@ -34,6 +34,8 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
             }
         }
 
+        public string TextToReplace { get; set; }
+
         public string Replacement
         {
             get { return myReplacement; }

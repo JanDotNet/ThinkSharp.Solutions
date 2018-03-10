@@ -20,6 +20,8 @@ namespace ThinkSharp.Solutions.TemplateDefinition
         [XmlAttribute]
         public string Name { get; set; }
         [XmlAttribute]
+        public string TextToReplace { get; set; }
+        [XmlAttribute]
         public string Description { get; set; }
         [XmlAttribute]
         public string SuggestionList { get; set; }

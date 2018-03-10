@@ -51,6 +51,9 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
                 var placeholder = new PlaceholderViewModel()
                 {
                     Name = placeholderDefinition.Name,
+                    TextToReplace = string.IsNullOrEmpty(placeholderDefinition.TextToReplace) 
+                        ? placeholderDefinition.Name
+                        : placeholderDefinition.TextToReplace,
                     Replacement = placeholderDefinition.DefaultValue,
                     Suggestions = TemplateDefinitionHelper.SplitEscapedString(placeholderDefinition.SuggestionList),
                     Description = placeholderDefinition.Description
@@ -67,7 +70,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
             if (!IsTargetDirectoryValid(ctx))
                 return false;
 
-            var placeholders = Placeholders.Select(p => new KeyValuePair<string, string>(p.Name, p.Replacement)).ToArray();
+            var placeholders = Placeholders.Select(p => new KeyValuePair<string, string>(p.TextToReplace, p.Replacement)).ToArray();
 
             try
             {
