@@ -32,13 +32,15 @@ Create a new solution and replace all configurable text fragments with placehold
                          Description="The module the micro service belongs to."
                          SuggestionList="Module01, Module02, Module03" />
             <Placeholder Name="MICROSERVICE" 
-	                 Description="The name of the microservice" />				 
+	                 Description="The name of the microservice" />
+	    <Placeholder Name="PORT"
+			 TextToReplace="999999"
+	                 Description="The name of the microservice" />	
         </Placeholders>
     </TemplateDefinition>
 ```
 
-The name must be the text of the actual placeholder.
-The SuggestionList is a comma-separated list that will be provided as replacements when creating the solution from template.
+The value of ``TextToReplace`` is the text that will be replaced. If ``TextToReplace`` is not set, the value of ``Name`` will be used instead. The ``SuggestionList`` is a comma-separated list that will be provided to the user as replacements when creating the solution from template.
 
 ### Define GUID Placeholders
 GUID placeholders are valid GUIDs so that the template remains buildable. There are 2 types of special GUID placeholders that can be used.
