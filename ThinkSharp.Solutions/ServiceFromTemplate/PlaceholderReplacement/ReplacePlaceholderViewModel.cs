@@ -19,6 +19,8 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
 
         public ObservableCollection<PlaceholderViewModel> Placeholders { get; } = new ObservableCollection<PlaceholderViewModel>();
 
+        public ObservableCollection<Example> Examples { get; } = new ObservableCollection<Example>();
+
         public override bool CanExecute()
         {
             return Placeholders.All(p => !string.IsNullOrWhiteSpace(p.Replacement));
@@ -60,6 +62,11 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
                 };
 
                 Placeholders.Add(placeholder);
+            }
+
+            foreach(var example in templateDefinition.Examples ?? new Example[0])
+            {
+                Examples.Add(example);
             }
 
             return true;

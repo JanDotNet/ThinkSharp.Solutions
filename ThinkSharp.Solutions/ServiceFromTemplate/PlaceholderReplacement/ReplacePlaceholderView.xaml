@@ -13,6 +13,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Replace placeholders in template" FontWeight="Bold" />
@@ -28,6 +30,24 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="{Binding Name}" ToolTip="{Binding Description}" />
                         <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>                        
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Label Content="Examples:" Grid.Row="2" FontWeight="Bold" />
+        
+        <ItemsControl Grid.Row="3" ItemsSource="{Binding Examples}"
+                      Grid.IsSharedSizeScope="True">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="EXAMPLE_LABEL" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding Header}" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Text}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
