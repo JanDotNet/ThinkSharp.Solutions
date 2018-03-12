@@ -61,7 +61,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository
         {
             if (!IOHelper.IsEmpty(TargetDirectory))
             {
-                MessageBox.Show("Target directory must be empty!");
+                MessageBox.Show("Target directory must be empty!", "Info", MessageBoxButton.OK, MessageBoxImage.Hand);
                 return false;
             }
 

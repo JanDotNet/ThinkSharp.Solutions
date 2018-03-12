@@ -108,7 +108,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
             {
                 var msg = $"An error occured while running step '{CurrentStep?.ActionText ?? "<null>"}'.";
                 theLogger.Error(msg, ex);
-                MessageBox.Show(msg + Environment.NewLine + "See log file for details.", "Error");
+                MessageBox.Show(msg + Environment.NewLine + "See log file for details: '%AppData%\\ThinkSharp\\Solutions\\error.log''", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -118,7 +118,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
 
             if (solutionFiles.Length == 0)
             {
-                MessageBox.Show("MicroService created - unable to open solution because no solution file found.");
+                MessageBox.Show("MicroService created - unable to open solution because no solution file found.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
