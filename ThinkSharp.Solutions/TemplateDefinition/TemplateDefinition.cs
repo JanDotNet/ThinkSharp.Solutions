@@ -13,6 +13,10 @@ namespace ThinkSharp.Solutions.TemplateDefinition
         [XmlArray("Placeholders")]
         [XmlArrayItem("Placeholder")]
         public Placeholder[] Placeholders { get; set; }
+
+        [XmlArray("Examples")]
+        [XmlArrayItem("Example")]
+        public Example[] Examples { get; set; }
     }
 
     public class Placeholder
@@ -27,5 +31,13 @@ namespace ThinkSharp.Solutions.TemplateDefinition
         public string SuggestionList { get; set; }
         [XmlAttribute]
         public string DefaultValue { get; set; }
+    }
+
+    public class Example
+    {
+        [XmlAttribute]
+        public string Header { get; set; }
+        [XmlAttribute]
+        public string Text { get; set; }
     }
 }
