@@ -76,7 +76,7 @@
       <DependentUpon>ReplacePlaceholderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ServiceFromTemplate\PlaceholderReplacement\ReplacePlaceholderViewModel.cs" />
-    <Compile Include="ServiceFromTemplate\PlaceholderViewModel.cs" />
+    <Compile Include="ServiceFromTemplate\PlaceholderReplacement\PlaceholderViewModel.cs" />
     <Compile Include="ServiceFromTemplate\ServiceFromTemplateCommand.cs" />
     <Compile Include="Infrastructure\DelegteCommand.cs" />
     <Compile Include="Infrastructure\IOHelper.cs" />

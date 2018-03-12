@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThinkSharp.Solutions.ServiceFromTemplate
+namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
 {
     public class PlaceholderViewModel : ViewModelBase
     {
