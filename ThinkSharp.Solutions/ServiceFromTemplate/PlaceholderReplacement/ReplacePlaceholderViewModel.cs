@@ -72,29 +72,19 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
 
             var placeholders = Placeholders.Select(p => new KeyValuePair<string, string>(p.TextToReplace, p.Replacement)).ToArray();
 
-            try
-            {
-                progress.Report("Replacing placeholders in file names and directories...");
+            progress.Report("Replacing placeholders in file names and directories...");
 
-                await Task.Run(() => IOHelper.ReplacePlaceholdersInFileNamesAndDirectories(ctx.TargetDirectory, placeholders));
+            await Task.Run(() => IOHelper.ReplacePlaceholdersInFileNamesAndDirectories(ctx.TargetDirectory, placeholders));
 
-                progress.Report("Replacing placeholders in file content...");
+            progress.Report("Replacing placeholders in file content...");
 
-                await Task.Run(() => IOHelper.ReplacePlaceholdersInFilesContent(ctx.TargetDirectory, placeholders));
+            await Task.Run(() => IOHelper.ReplacePlaceholdersInFilesContent(ctx.TargetDirectory, placeholders));
 
-                progress.Report("Replacing guids in file content...");
+            progress.Report("Replacing guids in file content...");
 
-                await Task.Run(() => IOHelper.ReplaceGuids(ctx.TargetDirectory));
+            await Task.Run(() => IOHelper.ReplaceGuids(ctx.TargetDirectory));
 
-                return true;
-            }
-            catch (Exception ex)
-            {
-                var msg = "Error while replacing place holders";
-                theLogger.Error("Error while replacing place holders", ex);
-                ctx.Errors.Add(msg + ": " + ex.Message);
-                return false;
-            }
+            return true;
         }
 
         private bool IsTargetDirectoryValid(StepContext ctx)

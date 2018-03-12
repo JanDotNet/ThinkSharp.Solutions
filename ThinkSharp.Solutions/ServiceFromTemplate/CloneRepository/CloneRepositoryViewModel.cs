@@ -67,48 +67,40 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository
 
             progress.Report("Cloning Repository...");
 
+            string gitRepoDir = null;
             try
             {
-                string gitRepoDir = null;
-                try
+                // try to clone without authentication
+                await Task.Run(() =>
                 {
-                    // try to clone without authentication
-                    await Task.Run(() =>
-                    {
-                        gitRepoDir = Repository.Clone(GitRepository, TargetDirectory);
-                        IOHelper.NormalizeAttributes(gitRepoDir);
-                        Directory.Delete(gitRepoDir, true);
-                    });
-                }
-                // probably authentication exception
-                catch(Exception ex)
-                {
-                    theLogger.Info($"Unable to clone repository '{GitRepository}' without credentials.", ex);
-                    var userName = string.IsNullOrWhiteSpace(Settings.Default.UserName) ? Environment.UserName : Settings.Default.UserName;
-                    var vm = new CredentialsViewModel(userName);
-                    UIHelper.ShowView<CredentialsView>(vm);
-                    if (vm.Canceled == true) return false;
-
-                    await Task.Run(() =>
-                    {
-                        var co = new CloneOptions();
-                        co.CredentialsProvider = (_url, _user, _cred) => new UsernamePasswordCredentials { Username = vm.UserName, Password = vm.Password };
-                        gitRepoDir = Repository.Clone(GitRepository, TargetDirectory, co);
-                    });
-                }
-
-                IOHelper.NormalizeAttributes(gitRepoDir);
-                Directory.Delete(gitRepoDir, true);
-
-                ctx.TargetDirectory = TargetDirectory;
-
-                return true;
+                    gitRepoDir = Repository.Clone(GitRepository, TargetDirectory);
+                    IOHelper.NormalizeAttributes(gitRepoDir);
+                    Directory.Delete(gitRepoDir, true);
+                });
             }
-            catch (Exception ex)
+            // probably authentication exception
+            catch(Exception ex)
             {
-                theLogger.Info($"Unable to clone repository '{GitRepository}'.", ex);
-                return false;
+                theLogger.Info($"Unable to clone repository '{GitRepository}' without credentials.", ex);
+                var userName = string.IsNullOrWhiteSpace(Settings.Default.UserName) ? Environment.UserName : Settings.Default.UserName;
+                var vm = new CredentialsViewModel(userName);
+                UIHelper.ShowView<CredentialsView>(vm);
+                if (vm.Canceled == true) return false;
+
+                await Task.Run(() =>
+                {
+                    var co = new CloneOptions();
+                    co.CredentialsProvider = (_url, _user, _cred) => new UsernamePasswordCredentials { Username = vm.UserName, Password = vm.Password };
+                    gitRepoDir = Repository.Clone(GitRepository, TargetDirectory, co);
+                });
             }
+
+            IOHelper.NormalizeAttributes(gitRepoDir);
+            Directory.Delete(gitRepoDir, true);
+
+            ctx.TargetDirectory = TargetDirectory;
+
+            return true;
         }
 
         public override void SaveSettings()

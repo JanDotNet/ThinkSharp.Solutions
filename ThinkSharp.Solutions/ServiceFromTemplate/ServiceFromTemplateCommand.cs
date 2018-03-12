@@ -11,6 +11,9 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using System.Windows;
 using ThinkSharp.Solutions.Infrastructure;
+using log4net;
+using log4net.Config;
+using System.IO;
 
 namespace ThinkSharp.Solutions.ServiceFromTemplate
 {
@@ -19,6 +22,8 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
     /// </summary>
     internal sealed class ServiceFromTemplateCommand
     {
+        private static readonly ILog theLogger = LogManager.GetLogger(typeof(ServiceFromTemplateCommand));
+
         /// <summary>
         /// Command ID.
         /// </summary>
@@ -84,6 +89,8 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
+            var fileInfo = new FileInfo("log4net.config");
+            XmlConfigurator.Configure(fileInfo);
             Instance = new ServiceFromTemplateCommand(package);
         }
 
@@ -94,6 +101,8 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
         /// <param name="e">The event args.</param>
         private void ShowToolWindow(object sender, EventArgs e)
         {
+            theLogger.Info("Opening 'Generate Solution from template' window.");
+
             UIHelper.ShowView<GenerateSolutionFromTemplateView>(new GenerateSolutionFromTemplateViewModel());
             
             

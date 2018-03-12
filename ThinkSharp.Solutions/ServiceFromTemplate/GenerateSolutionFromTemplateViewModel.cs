@@ -106,7 +106,9 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                var msg = $"An error occured while running step '{CurrentStep?.ActionText ?? "<null>"}'.";
+                theLogger.Error(msg, ex);
+                MessageBox.Show(msg + Environment.NewLine + "See log file for details.", "Error");
             }
         }
 
