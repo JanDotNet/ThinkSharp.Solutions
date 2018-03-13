@@ -19,7 +19,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
 
         public ObservableCollection<PlaceholderViewModel> Placeholders { get; } = new ObservableCollection<PlaceholderViewModel>();
 
-        public ObservableCollection<Example> Examples { get; } = new ObservableCollection<Example>();
+        public ObservableCollection<ExampleViewModel> Examples { get; } = new ObservableCollection<ExampleViewModel>();
 
         public override bool CanExecute()
         {
@@ -61,12 +61,18 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement
                     Description = placeholderDefinition.Description
                 };
 
+                placeholder.PropertyChanged += (s, e) =>
+                {
+                    foreach (var example in Examples)
+                        example.UpdateText(Placeholders);
+                };
+
                 Placeholders.Add(placeholder);
             }
 
             foreach(var example in templateDefinition.Examples ?? new Example[0])
             {
-                Examples.Add(example);
+                Examples.Add(new ExampleViewModel(example));
             }
 
             return true;

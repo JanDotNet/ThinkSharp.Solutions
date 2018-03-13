@@ -7,9 +7,9 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />        
-    </UserControl.Resources>    
-    
-    <Grid Margin="0">       
+    </UserControl.Resources>
+
+    <Grid Margin="0" Grid.IsSharedSizeScope="True" >       
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -20,7 +20,7 @@
         <TextBlock Text="Replace placeholders in template" FontWeight="Bold" />
 
         <ItemsControl Grid.Row="1" ItemsSource="{Binding Placeholders}"
-                      Grid.IsSharedSizeScope="True" x:Name="PlaceholderItems">
+                      x:Name="PlaceholderItems">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -28,25 +28,25 @@
                             <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
                             <ColumnDefinition Width="*" />                        
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="{Binding Name}" ToolTip="{Binding Description}" />
+                        <TextBlock Grid.Column="0" Text="{Binding Name}" ToolTip="{Binding Description}" FontWeight="SemiBold" />
                         <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>                        
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Label Content="Examples:" Grid.Row="2" FontWeight="Bold" />
+        <Label Content="Preview:" Grid.Row="2" FontWeight="Bold" />
         
         <ItemsControl Grid.Row="3" ItemsSource="{Binding Examples}"
-                      Grid.IsSharedSizeScope="True">
+                      Margin="5,0">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="EXAMPLE_LABEL" />
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="{Binding Header}" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="0" Text="{Binding Header}" FontWeight="SemiBold"/>
                         <TextBlock Grid.Column="1" Text="{Binding Text}" />
                     </Grid>
                 </DataTemplate>

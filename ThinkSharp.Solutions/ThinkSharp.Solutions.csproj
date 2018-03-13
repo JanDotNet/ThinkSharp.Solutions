@@ -72,6 +72,7 @@
     <Compile Include="ServiceFromTemplate\GenerateSolutionFromTemplateView.xaml.cs">
       <DependentUpon>GenerateSolutionFromTemplateView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ServiceFromTemplate\PlaceholderReplacement\ExampleViewModel.cs" />
     <Compile Include="ServiceFromTemplate\PlaceholderReplacement\ReplacePlaceholderView.xaml.cs">
       <DependentUpon>ReplacePlaceholderView.xaml</DependentUpon>
     </Compile>
