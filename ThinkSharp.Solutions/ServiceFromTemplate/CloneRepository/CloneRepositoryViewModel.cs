@@ -53,17 +53,32 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository
         }, () => !IsWorking);
 
         public override bool CanExecute()
-        {
-            return Directory.Exists(TargetDirectory) && !string.IsNullOrWhiteSpace(GitRepository) && !IsWorking;
-        }
+            => !string.IsNullOrWhiteSpace(TargetDirectory) 
+            && !string.IsNullOrWhiteSpace(GitRepository) 
+            && !IsWorking;
 
         public override async Task<bool> ExecuteAsync(IProgress<string> progress, StepContext ctx)
         {
+            try
+            {
+                if (!Directory.Exists(TargetDirectory))
+                {
+                    Directory.CreateDirectory(TargetDirectory);
+                }
+            }
+            catch (Exception ex)
+            {
+                var msg = $"Unable to create directory '{TargetDirectory}'.";
+                theLogger.Error(msg, ex);
+                MessageBox.Show(msg, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
             if (!IOHelper.IsEmpty(TargetDirectory))
             {
                 MessageBox.Show("Target directory must be empty!", "Info", MessageBoxButton.OK, MessageBoxImage.Hand);
                 return false;
-            }
+            }            
 
             progress.Report("Cloning Repository...");
 
