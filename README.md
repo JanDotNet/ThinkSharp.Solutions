@@ -37,10 +37,19 @@ Create a new solution and replace all configurable text fragments with placehold
 			 TextToReplace="999999"
 	                 Description="The name of the microservice" />	
         </Placeholders>
+	
+	<Examples>
+	    <Example Header="AssemblyName" Text="Company.Department.MODULE.MICROSERVICE.dll" />
+            <Example Header="Namespace" Text="namespace Company.Department.MODULE.MICROSERVICE" />
+            <Example Header="Service" Text="public class MICROSERVICEService" />
+            <Example Header="URL" Text="http://localhost:999999/index.html" />
+        </Examples>
     </TemplateDefinition>
 ```
 
 The value of ``TextToReplace`` is the text that will be replaced. If ``TextToReplace`` is not set, the value of ``Name`` will be used instead. The ``SuggestionList`` is a comma-separated list that will be provided to the user as replacements when creating the solution from template.
+
+The examples will be shown on the dialog where the place holders are entered. They can be used to give the user a preview of the template parts affected by the place holders.
 
 ### Define GUID Placeholders
 GUID placeholders are valid GUIDs so that the template remains buildable. There are 2 types of special GUID placeholders that can be used.
