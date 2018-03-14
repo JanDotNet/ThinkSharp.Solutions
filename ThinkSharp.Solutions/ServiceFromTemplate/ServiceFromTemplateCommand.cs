@@ -103,7 +103,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
         {
             theLogger.Info("Opening 'Generate Solution from template' window.");
 
-            UIHelper.ShowView<GenerateSolutionFromTemplateView>(new GenerateSolutionFromTemplateViewModel());
+            UIHelper.ShowView<GenerateSolutionFromTemplateView>(new GenerateSolutionFromTemplateViewModel(), new Size(600, 300));
             
             
 

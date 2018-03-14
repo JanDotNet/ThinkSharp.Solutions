@@ -98,7 +98,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository
             {
                 theLogger.Info($"Unable to clone repository '{GitRepository}' without credentials.", ex);
                 var userName = string.IsNullOrWhiteSpace(Settings.Default.UserName) ? Environment.UserName : Settings.Default.UserName;
-                var vm = new CredentialsViewModel(userName);
+                var vm = new CredentialsViewModel(userName, "Enter Git Credentials");
                 UIHelper.ShowView<CredentialsView>(vm);
                 if (vm.Canceled == true) return false;
 

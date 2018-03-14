@@ -7,7 +7,6 @@
              xmlns:CloneRepository="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate.CloneRepository"
              xmlns:PlaceholderReplacement="clr-namespace:ThinkSharp.Solutions.ServiceFromTemplate.PlaceholderReplacement"
              mc:Ignorable="d"
-             MinHeight="300" MinWidth="600"
              Name="MyToolWindow">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />

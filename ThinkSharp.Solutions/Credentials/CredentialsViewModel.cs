@@ -9,7 +9,7 @@ namespace ThinkSharp.Solutions.Credentials
 {
     public class CredentialsViewModel : DialogViewModel
     {
-        public CredentialsViewModel(string username) : base("Enter Credentials")
+        public CredentialsViewModel(string username, string title = "Enter Credentials") : base(title)
         {
             UserName = username;
         }
