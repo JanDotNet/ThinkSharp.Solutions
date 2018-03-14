@@ -108,7 +108,9 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
             {
                 var msg = $"An error occured while running step '{CurrentStep?.ActionText ?? "<null>"}'.";
                 theLogger.Error(msg, ex);
-                MessageBox.Show(msg + Environment.NewLine + "See log file for details: '%AppData%\\ThinkSharp\\Solutions\\error.log''", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(msg + 
+                    Environment.NewLine + "Details: " + ex.Message +
+                    Environment.NewLine + "See log file for more details: '%AppData%\\ThinkSharp\\Solutions\\error.log''", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
