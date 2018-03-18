@@ -68,7 +68,7 @@ All occurencies of the GUID "00000000-1111-0000-1111-[0-9a-f]{12}" will be repla
 
 1) Start a new instance of Visual Studio 2015
 2) Klick Tools -> Create Solution from Template
-3) Enter git repository URL (HTTPS) and target directory into the dialog and press "Clone Template". Note that cloning with git url (e.g. git@github.com...) is not supported.
+3) Enter the HTTPS URL of the git repository and the target directory into the dialog and press "Clone Template". Note that cloning with git url (e.g. git@github.com...) is not supported.
 
 ![thinksharp solutions01](https://user-images.githubusercontent.com/21179870/36869524-623b622a-1d9c-11e8-880f-a1359052416c.png)
 
