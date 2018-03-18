@@ -11,7 +11,7 @@ The template may contain place holders that are replaced with custom values afte
 
 ## Installation
 
-Download last build: https://ci.appveyor.com/project/JanDotNet/thinksharp-solutions/build/artifacts and install it.
+Download last release: https://github.com/JanDotNet/ThinkSharp.Solutions/releases and install it.
 
 Note that ThinkSharp.Solutions is currently only available for Visual Studio 2015.
 
@@ -68,7 +68,7 @@ All occurencies of the GUID "00000000-1111-0000-1111-[0-9a-f]{12}" will be repla
 
 1) Start a new instance of Visual Studio 2015
 2) Klick Tools -> Create Solution from Template
-3) Enter git repository URL and target directory into the dialog and press "Clone Template"
+3) Enter git repository URL (HTTPS) and target directory into the dialog and press "Clone Template". Note that cloning with git url (e.g. git@github.com...) is not supported.
 
 ![thinksharp solutions01](https://user-images.githubusercontent.com/21179870/36869524-623b622a-1d9c-11e8-880f-a1359052416c.png)
 
@@ -80,6 +80,10 @@ The solution will be copied into the entered target directory.
 
 All placeholders will be replaced in all files (file content) as well as directory and file names.
 If "Open Solution" is checked, the solution will be opend.
+
+## Logging
+
+In case of errors, the log file is located in "%AppData%\ThinkSharp\Solutions\"
 
 ## License
 
