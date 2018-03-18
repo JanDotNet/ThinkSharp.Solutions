@@ -11,7 +11,7 @@ The template may contain place holders that are replaced with custom values afte
 
 ## Installation
 
-Download last release: https://github.com/JanDotNet/ThinkSharp.Solutions/releases and install it.
+Download latest release: https://github.com/JanDotNet/ThinkSharp.Solutions/releases and install it.
 
 Note that ThinkSharp.Solutions is currently only available for Visual Studio 2015.
 
