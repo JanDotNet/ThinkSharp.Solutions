@@ -17,11 +17,18 @@ namespace ThinkSharp.Solutions.Infrastructure
         public static void ShowView<TView>(ViewModelBase viewModel, Size windowSize) where TView : FrameworkElement, new()
         {
             var window = new DialogWindow();
+            
             if (windowSize != Size.Empty)
             {
-                window.Width = window.Width;
-                window.Height = window.Height;
+                window.SizeToContent = SizeToContent.Manual;
+                window.Width = windowSize.Width;
+                window.Height = windowSize.Height;
             }
+            else
+            {
+                window.SizeToContent = SizeToContent.WidthAndHeight;
+            }
+
             var view = Activator.CreateInstance<TView>() as TView;
             var vm = viewModel as IWindowContoller;
 
@@ -36,7 +43,7 @@ namespace ThinkSharp.Solutions.Infrastructure
             window.WindowStyle = WindowStyle.ToolWindow;
             window.ShowInTaskbar = true;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            window.SizeToContent = SizeToContent.WidthAndHeight;
+            
             window.ShowDialog();
         }
     }
