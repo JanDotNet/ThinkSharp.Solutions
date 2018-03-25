@@ -19,6 +19,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.ColumnSpan="3" Text="Creating new Solution from GIT repository" FontWeight="Bold" />
@@ -26,8 +27,11 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Git Repository:" />
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding GitRepository, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Target Directory:" />
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="2" Grid.Column="2" Content="..." Command="{Binding CmdSelectFolder}" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Git Branch (optional):" />
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding GitBranch, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Target Directory:" />
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding TargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="3" Grid.Column="2" Content="..." Command="{Binding CmdSelectFolder}" />
     </Grid>
 </UserControl>
