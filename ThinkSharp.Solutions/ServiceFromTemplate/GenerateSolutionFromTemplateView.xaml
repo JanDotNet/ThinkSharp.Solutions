@@ -9,6 +9,30 @@
              mc:Ignorable="d"
              Name="MyToolWindow">
     <UserControl.Resources>
+
+        <LinearGradientBrush x:Key="LightBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#FFF" Offset="0.0"/>
+                    <GradientStop Color="#EEE" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="NormalBorderBrush" StartPoint="0,0" EndPoint="0,1">
+            <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#CCC" Offset="0.0"/>
+                    <GradientStop Color="#444" Offset="1.0"/>
+                </GradientStopCollection>
+            </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF" />
+
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+
+
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
         <Style TargetType="{x:Type TextBox}">
@@ -18,6 +42,7 @@
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="5" />
             <Setter Property="MinHeight" Value="22" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="5" />
@@ -30,6 +55,34 @@
         <Style TargetType="{x:Type ComboBox}">
             <Setter Property="Margin" Value="5" />
             <Setter Property="MinWidth" Value="22" />
+        </Style>
+
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Grid Margin="0,0,0,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" 
+                                    Background="LightGray"
+                                    BorderBrush="Gray"
+                                    BorderThickness="0" 
+                                    CornerRadius="2,2,0,0" >
+                                <ContentPresenter Margin="5"
+                                                  TextBlock.FontWeight="Bold"
+                                                  ContentSource="Header" 
+                                                  RecognizesAccessKey="True" />     
+                            </Border>
+                            <Border Grid.Row="1">
+                                <ContentPresenter Margin="5" />
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <DataTemplate DataType="{x:Type CloneRepository:CloneRepositoryViewModel}" >
@@ -66,7 +119,7 @@
             </StatusBarItem>
         </StatusBar>
     
-    <Grid Margin="5">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -74,9 +127,9 @@
 
             <ContentControl Content="{Binding CurrentStep}" Background="Green" />
 
-            <CheckBox Grid.Row="1" IsChecked="{Binding OpenSolutionAfterCreation}" Content="Open solution after creation" VerticalAlignment="Center" />
+            <CheckBox Grid.Row="1" IsChecked="{Binding OpenSolutionAfterCreation}" Content="Open solution after creation" VerticalAlignment="Center" Margin="5" />
 
-            <Button Grid.Row="1" HorizontalAlignment="Right" Content="{Binding CurrentStep.ActionText}" Command="{Binding CmdGenerateMicroService}" Padding="5"/>
+            <Button Grid.Row="1" HorizontalAlignment="Right" Content="{Binding CurrentStep.ActionText}" Command="{Binding CmdGenerateMicroService}" Padding="5" Margin="10"/>
     </Grid>
     </DockPanel>
 </UserControl>

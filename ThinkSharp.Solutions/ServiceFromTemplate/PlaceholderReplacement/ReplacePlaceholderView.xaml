@@ -13,44 +13,41 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Replace placeholders in template" FontWeight="Bold" />
-
-        <ItemsControl Grid.Row="1" ItemsSource="{Binding Placeholders}"
+        <GroupBox Grid.Row="0" Header="Enter Placeholders">
+            <ItemsControl ItemsSource="{Binding Placeholders}"
                       x:Name="PlaceholderItems">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
-                            <ColumnDefinition Width="*" />                        
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Name}" ToolTip="{Binding Description}" FontWeight="SemiBold" />
-                        <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>                        
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Name}" ToolTip="{Binding Description}" FontWeight="Bold" />
+                            <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </GroupBox>
 
-        <Label Content="Preview:" Grid.Row="2" FontWeight="Bold" />
-        
-        <ItemsControl Grid.Row="3" ItemsSource="{Binding Examples}"
-                      Margin="5,0">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding Header}" FontWeight="SemiBold"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Text}" />
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <GroupBox Grid.Row="1" Header="Live Preview">
+            <ItemsControl ItemsSource="{Binding Examples}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Content="{Binding Header}" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Text}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </GroupBox>
     </Grid>
 </UserControl>

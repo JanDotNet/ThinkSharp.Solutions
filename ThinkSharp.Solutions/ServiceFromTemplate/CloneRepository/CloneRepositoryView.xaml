@@ -7,31 +7,32 @@
              mc:Ignorable="d">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />        
-    </UserControl.Resources>    
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    </UserControl.Resources>
 
-        <TextBlock Grid.ColumnSpan="3" Text="Creating new Solution from GIT repository" FontWeight="Bold" />
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Git Repository:" />
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding GitRepository, UpdateSourceTrigger=PropertyChanged}" />
+    <GroupBox Header="Enter source repository and target directory">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Git Branch (optional):" />
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding GitBranch, UpdateSourceTrigger=PropertyChanged}" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Git Repository:" FontWeight="Bold" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding GitRepository, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Grid.Row="3" Grid.Column="0" Content="Target Directory:" />
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding TargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="3" Grid.Column="2" Content="..." Command="{Binding CmdSelectFolder}" />
-    </Grid>
+            <Label Grid.Row="2" Grid.Column="0" Content="Git Branch (optional):" FontWeight="Bold" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding GitBranch, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Target Directory:" FontWeight="Bold" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding TargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Grid.Row="3" Grid.Column="2" Content="..." Command="{Binding CmdSelectFolder}" />
+        </Grid>
+    </GroupBox>
 </UserControl>
