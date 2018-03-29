@@ -31,7 +31,7 @@ namespace ThinkSharp.Solutions.ServiceFromTemplate
         private readonly IProgress<string>  myProgress;
         private readonly StepContext myStepContext = new StepContext();
 
-        public GenerateSolutionFromTemplateViewModel() : base("Create form Template")
+        public GenerateSolutionFromTemplateViewModel() : base("Create Solution from Template")
         {
             OpenSolutionAfterCreation = Settings.Default.OpenSolutionAfterCreation;
 
