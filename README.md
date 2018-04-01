@@ -72,13 +72,13 @@ All occurencies of the GUID "00000000-1111-0000-1111-[0-9a-f]{12}" will be repla
 2) Klick Tools -> Create Solution from Template
 3) Enter the HTTPS URL of the git repository and the target directory into the dialog and press "Clone Template". Note that cloning with git url (e.g. git@github.com...) is not supported.
 
-![thinksharp solutions01](https://user-images.githubusercontent.com/21179870/36869524-623b622a-1d9c-11e8-880f-a1359052416c.png)
+![solutionfromtemplate01](https://user-images.githubusercontent.com/21179870/38171518-81ae0a7e-359b-11e8-8a9c-9f0d641056b9.png)
 
 The solution will be copied into the entered target directory.
 
 4) Enter replacements and press "Replace Placeholders"
 
-![thinksharp solutions02](https://user-images.githubusercontent.com/21179870/36869541-720c7e00-1d9c-11e8-83a1-75d48670a0d9.png)
+![solutionfromtemplate02](https://user-images.githubusercontent.com/21179870/38171522-8a98c598-359b-11e8-9e8c-73b6cef7facd.png)
 
 All placeholders will be replaced in all files (file content) as well as directory and file names.
 If "Open Solution" is checked, the solution will be opend.
