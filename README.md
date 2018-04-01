@@ -6,8 +6,7 @@
 
 ## Intoduction
 
-ThinkSharp.Solutions is a small Visual Studio Extension that allows to clone a template from a git repository. 
-The template may contain place holders that are replaced with custom values after cloning.
+ThinkSharp.Solutions is a small Visual Studio Extension that allows to create a new solution from a template. The template is a prepared solution located in a git repository. It may contain place holders that are replaced with custom values after cloning.
 
 ## Installation
 
@@ -17,11 +16,14 @@ Note that ThinkSharp.Solutions is currently available for Visual Studio 2015 onl
 
 ## Creating a Template
 
-### Create Template
-Create a new solution and replace all configurable text fragments with placeholders. "configurable text fragments" may text within files or file / directory names.
+### Create the template
+Create a new solution and replace all configurable text fragments with placeholders. "configurable text fragments" may be text within file content or file / directory names.
 
-### Add TemplateDefinitionFile
-* Create a file "TemplateDefinition.xml" on top level
+There is also a working sample available: 
+https://github.com/JanDotNet/ThinkSharp.Solutions.ExampleTemplate
+
+### Add a template definition file
+* Create a file "TemplateDefinition.xml" on root level (same directory where the '.git' directory is)
 * Define all placeholders within the template definition file as shown below:
    
 ```xml
