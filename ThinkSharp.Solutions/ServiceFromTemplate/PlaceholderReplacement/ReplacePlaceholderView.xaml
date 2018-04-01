@@ -23,10 +23,11 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
+                                <ColumnDefinition Width="5" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" Content="{Binding Name}" ToolTip="{Binding Description}" FontWeight="Bold" />
-                            <ComboBox Grid.Column="1" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>
+                            <ComboBox Grid.Column="2" Text="{Binding Replacement}" ItemsSource="{Binding Suggestions}" IsEditable="True"/>
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
@@ -40,10 +41,11 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="PLACEHOLDER_LABEL" />
+                                <ColumnDefinition Width="5" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Label Grid.Column="0" Content="{Binding Header}" FontWeight="Bold"/>
-                            <TextBlock Grid.Column="1" Text="{Binding Text}" />
+                            <TextBlock Grid.Column="2" Text="{Binding Text}" VerticalAlignment="Center" />
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
