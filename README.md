@@ -12,7 +12,7 @@ ThinkSharp.Solutions is a small Visual Studio Extension that allows to create a 
 
 Download latest release: https://github.com/JanDotNet/ThinkSharp.Solutions/releases and install it.
 
-Note that ThinkSharp.Solutions is currently available for Visual Studio 2015 only.
+Note that ThinkSharp.Solutions is currently available for Visual Studio 2015 and 2017 only. 
 
 ## Usage
 
